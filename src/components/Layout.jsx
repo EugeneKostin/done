@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import {
-  Box, Center, Container, Flex, Heading,
+  Box, Container, Flex, Heading,
 } from '@chakra-ui/react';
 
 function Layout() {
