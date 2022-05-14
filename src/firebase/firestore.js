@@ -1,6 +1,24 @@
-import { getFirestore } from 'firebase/firestore';
-import firebaseApp from './init';
+import {
+  collection, addDoc, getDocs, query, orderBy, limit,
+} from 'firebase/firestore';
+import { db } from './init';
 
-const db = getFirestore(firebaseApp);
+const postsRef = collection(db, 'posts');
 
-export default db;
+export const addPost = async (data) => {
+  try {
+    await addDoc(postsRef, data);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+export const getAllPosts = async () => {
+  const q = query(postsRef, orderBy('createdOn'));
+  try {
+    const snapshot = await getDocs(q);
+    return snapshot;
+  } catch (err) {
+    throw new Error(err);
+  }
+};
