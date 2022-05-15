@@ -1,21 +1,26 @@
 import { signOut, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './init';
+import { getMessageFromErrorCode } from '../helper';
 
 export const login = async (email, password) => {
-  console.log({ email, password });
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return userCredential.user;
-  } catch (err) {
-    throw new Error(err);
+  } catch ({ code }) {
+    console.log(code);
+    throw new Error(getMessageFromErrorCode(code));
   }
 };
 
 export const logout = async () => {
   try {
     await signOut(auth);
-  } catch (err) {
-    throw new Error(err);
+  } catch ({ code }) {
+    const err = {
+      code,
+      message: getMessageFromErrorCode(code),
+    };
+    throw new Error(getMessageFromErrorCode(code));
   }
 };
 

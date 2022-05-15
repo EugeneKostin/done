@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import {
   Box, Container, Flex, Heading,
 } from '@chakra-ui/react';
@@ -9,7 +9,7 @@ function Layout() {
     <>
       <Flex as="header" mt={6} pos="relative" h={160} alignItems="center">
         <Box
-          bg="green.600"
+          bg="secondary"
           sx={{
             height: '50%',
             position: 'absolute',
@@ -23,14 +23,16 @@ function Layout() {
           }}
         />
         <Container maxW="container.lg">
-          <Box p={8} bg="purple.400" boxShadow="md" borderRadius="sm" w="fit-content" sx={{ transform: 'rotate(2deg)' }}>
-            <Heading as="h1" fontSize="6xl" sx={{ letterSpacing: '.1em' }}>
-              Done!
-            </Heading>
-          </Box>
+          <Link to="/">
+            <Box p={8} bg="primary" boxShadow="md" borderRadius="sm" w="fit-content" sx={{ transform: 'rotate(2deg)' }}>
+              <Heading as="h1" fontSize="6xl" sx={{ letterSpacing: '.1em' }}>
+                Done!
+              </Heading>
+            </Box>
+          </Link>
         </Container>
       </Flex>
-      <Container maxW="full" centerContent>
+      <Container maxW="full" centerContent mt={4}>
         <Outlet />
       </Container>
     </>
