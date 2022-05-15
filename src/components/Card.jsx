@@ -5,7 +5,7 @@ import {
 
 function Card({ post }) {
   const postCreationDate = useMemo(
-    () => (isNaN(post?.createdOn) ? 'Дата не указана' : new Date(post?.createdOn?.seconds * 1000).toLocaleDateString('ru-RU')),
+    () => (Number.isNaN(post?.createdOn) ? 'Дата не указана' : new Date(post?.createdOn?.seconds * 1000).toLocaleDateString('ru-RU')),
     [post],
   );
 
