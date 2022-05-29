@@ -25,6 +25,11 @@ function Card({ post }) {
       py={{ base: 8, md: 10 }}
       borderRadius="sm"
       shouldWrapChildren
+      sx={{
+        "& .chakra-stack__item": {
+          width: "100%",
+        },
+      }}
     >
       <Heading size="lg" textDecoration="underline" textAlign="center">
         {postCreationDate}
@@ -32,11 +37,12 @@ function Card({ post }) {
       <Text
         fontSize={{ base: "lg", md: "xl" }}
         fontWeight="bold"
-        sx={{ mt: { base: 4, md: 6 } }}
+        sx={{ mt: { base: 4, md: 6 }, textAlign: "center" }}
       >
         {post.title}
       </Text>
       <Box
+        w="100%"
         fontSize={{ base: "sm", md: "md" }}
         mt={{ base: 2, md: 4 }}
         fontWeight="medium"
@@ -48,9 +54,9 @@ function Card({ post }) {
           },
           "& pre": {
             whiteSpace: "pre-wrap",
-            "& code": {
-              backgroundColor: codeBg,
-            },
+          },
+          "& code": {
+            backgroundColor: codeBg,
           },
         }}
       >
