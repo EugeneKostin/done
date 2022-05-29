@@ -1,14 +1,11 @@
-import {
-  Routes,
-  Route,
-} from 'react-router-dom';
-import Create from './pages/Create';
-import Home from './pages/Home';
-import PageNotFound from './pages/PageNotFound';
-import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
-import Login from './pages/Login';
-import { AuthContextProvider } from './context/authContext';
+import { Routes, Route } from "react-router-dom";
+import Create from "./pages/Create";
+import Home from "./pages/Home";
+import PageNotFound from "./pages/PageNotFound";
+import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./pages/Login";
+import { AuthContextProvider } from "./context/authContext";
 
 function App() {
   return (
@@ -24,7 +21,6 @@ function App() {
         </Route>
       </Routes>
     </AuthContextProvider>
-
   );
 }
 

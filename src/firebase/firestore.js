@@ -1,9 +1,14 @@
 import {
-  collection, addDoc, getDocs, query, orderBy, limit,
-} from 'firebase/firestore';
-import { db } from './init';
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+} from "firebase/firestore";
+import { db } from "./init";
 
-const postsRef = collection(db, 'posts');
+const postsRef = collection(db, "posts");
 
 export const addPost = async (data) => {
   try {
@@ -14,7 +19,7 @@ export const addPost = async (data) => {
 };
 
 export const getAllPosts = async () => {
-  const q = query(postsRef, orderBy('createdOn'));
+  const q = query(postsRef, orderBy("createdOn", "desc"));
   try {
     const snapshot = await getDocs(q);
     return snapshot;

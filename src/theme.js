@@ -1,24 +1,41 @@
-import { extendTheme } from '@chakra-ui/react';
-import '@fontsource/caveat';
+import { extendTheme } from "@chakra-ui/react";
+import "@fontsource/caveat";
+import "@fontsource/roboto-mono";
 
 const theme = extendTheme({
-  colors: {
-    primary: '#9F7AEA',
-    secondary: '#2F855A',
+  semanticTokens: {
+    colors: {
+      primary: {
+        default: "purple.400",
+        _dark: "purple.600",
+      },
+      secondary: {
+        default: "green.600",
+        _dark: "green.700",
+      },
+    },
   },
   fonts: {
-    heading: 'Caveat',
+    body: "Roboto Mono",
+    heading: "Caveat",
   },
   shadows: {
-    base: '2px 2px 0 #000',
-    sm: '4px 4px 0 #000',
-    md: '8px 8px 0 #000',
-    lg: '12px 12px 0 #000',
+    base: "2px 2px 0 #000",
+    sm: "4px 4px 0 #000",
+    md: "8px 8px 0 #000",
+    lg: "12px 12px 0 #000",
   },
   borders: {
-    base: '2px solid',
-    sm: '4px solid',
-    md: '6px solid',
+    base: "2px solid",
+    sm: "4px solid",
+    md: "6px solid",
+  },
+  styles: {
+    global: (props) => ({
+      body: {
+        bg: props.colorMode === "light" ? "yellow.50" : "gray.800",
+      },
+    }),
   },
 });
 
